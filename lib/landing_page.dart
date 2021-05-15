@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'constants.dart';
+import 'login_page.dart';
 
 class LandingPage extends StatefulWidget {
   static String id = 'landingPage';
@@ -35,7 +36,7 @@ class _LandingPageState extends State<LandingPage> {
                 text: 'Register A Hospital',
                 padding: 10.5.h,
                 onPressed: () {
-                  // Navigator.pushNamed(context, LoginScreen.id);
+                  Navigator.pushNamed(context, LoginScreen.id);
                 },
               ),
               LargeButton(

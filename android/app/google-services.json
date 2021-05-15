@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "518776649277",
+    "project_id": "bedtracker-ab58d",
+    "storage_bucket": "bedtracker-ab58d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518776649277:android:d20bcab4cc291f35229c54",
+        "android_client_info": {
+          "package_name": "com.adityanaitan.bed_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518776649277-minn7ah2brlf1befg5kq4glttbtvj2av.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC5LftD9gn21uqU0YrJ4ScFQnTVNZFJ6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518776649277-minn7ah2brlf1befg5kq4glttbtvj2av.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
