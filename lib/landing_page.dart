@@ -1,7 +1,8 @@
+import 'package:bed_tracker/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'constants.dart';
-import 'login_page.dart';
+import 'hospital_search_page.dart';
 
 class LandingPage extends StatefulWidget {
   static String id = 'landingPage';
@@ -43,7 +44,7 @@ class _LandingPageState extends State<LandingPage> {
                 text: 'View Beds',
                 padding: 5.74.h,
                 onPressed: () {
-                  // Navigator.pushNamed(context, SearchHospitals.id);
+                  Navigator.pushNamed(context, SearchHospitals.id);
                 },
               ),
             ],

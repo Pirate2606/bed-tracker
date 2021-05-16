@@ -1,3 +1,4 @@
+import 'register_hospital_page.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'constants.dart';
@@ -42,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
       });
 
       if (authCredential?.user != null) {
-        // Navigator.popAndPushNamed(context, RegisterHospital.id);
+        Navigator.popAndPushNamed(context, RegisterHospital.id);
       }
     } on FirebaseAuthException catch (e) {
       setState(() {
@@ -238,6 +239,8 @@ class SmallLogo extends StatelessWidget {
     return Flexible(
       child: Padding(
           padding: EdgeInsets.only(
+            // right: 68.0.w,
+            // left: 9.06.w,
             top: 10.4.h,
           ),
           child: Container(

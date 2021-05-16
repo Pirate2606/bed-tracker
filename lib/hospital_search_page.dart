@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:bed_tracker/hospital_info.dart';
+import 'package:bed_tracker/all_hospitals.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'constants.dart';
@@ -13,6 +13,55 @@ class SearchHospitals extends StatefulWidget {
 class _SearchHospitalsState extends State<SearchHospitals> {
   String stateDropdownValue = 'State';
   String districtDropdownValue = 'District';
+  var data;
+  int index = -1;
+  List dist = ['District'];
+  List states = [
+    'State',
+    'Andhra Pradesh',
+    'Arunachal Pradesh',
+    'Assam',
+    'Bihar',
+    'Chhattisgarh',
+    'Goa',
+    'Gujarat',
+    'Haryana',
+    'Himachal Pradesh',
+    'Jammu and Kashmir',
+    'Jharkhand',
+    'Karnataka',
+    'Kerala',
+    'Madhya Pradesh',
+    'Maharashtra',
+    'Manipur',
+    'Meghalaya',
+    'Mizoram',
+    'Nagaland',
+    'Odisha',
+    'Punjab',
+    'Rajasthan',
+    'Sikkim',
+    'Tamil Nadu',
+    'Telengana',
+    'Tripura',
+    'Uttar Pradesh',
+    'Uttarakhand',
+    'West Bengal'
+  ];
+
+  void readJson() async {
+    String jsonFile = await DefaultAssetBundle.of(context)
+        .loadString("assets/districts.json");
+    data = json.decode(jsonFile);
+    setState(() {
+      if (index == -1) {
+        dist = ['District'];
+      } else {
+        dist = ['District'];
+        dist = dist + data['states'][index]['districts'];
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,9 +109,11 @@ class _SearchHospitalsState extends State<SearchHospitals> {
                 onChanged: (String newValue) {
                   setState(() {
                     stateDropdownValue = newValue;
+                    index = states.indexOf(newValue) - 1;
                   });
                 },
-                items: [].map<DropdownMenuItem<String>>((var value) {
+                items: states.map<DropdownMenuItem<String>>((var value) {
+                  readJson();
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(
@@ -92,7 +143,7 @@ class _SearchHospitalsState extends State<SearchHospitals> {
                     districtDropdownValue = newValue;
                   });
                 },
-                items: [].map<DropdownMenuItem<String>>((var value) {
+                items: dist.map<DropdownMenuItem<String>>((var value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(
@@ -127,13 +178,21 @@ class _SearchHospitalsState extends State<SearchHospitals> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, HospitalInfo.id);
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AllHospitals(
+                        state: stateDropdownValue,
+                        district: districtDropdownValue,
+                      ),
+                    ),
+                  );
                 },
                 child: Container(
                   height: 6.89.h,
                   child: Center(
                     child: Text(
-                      'Save',
+                      'Search',
                       textAlign: TextAlign.center,
                       style: kButtonText.copyWith(
                         color: Color(0XFFF6FFFE),

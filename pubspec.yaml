@@ -23,3 +23,4 @@ flutter:
   assets:
     - images/logo.png
     - images/logo_small.png
+    - assets/districts.json
