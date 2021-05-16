@@ -2,20 +2,35 @@ import 'package:bed_tracker/hospital_home_page.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'package:sizer/sizer.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'hospital_home_page.dart';
 
 class RegisterHospitalBed extends StatefulWidget {
+  static String id = 'registerHospitalBed';
+  RegisterHospitalBed({this.name, this.state, this.district, this.number});
+  final name;
+  final state;
+  final district;
+  final number;
+
   @override
   _RegisterHospitalBedState createState() =>
-      _RegisterHospitalBedState();
+      _RegisterHospitalBedState(name, state, district, number);
 }
 
 class _RegisterHospitalBedState extends State<RegisterHospitalBed> {
+  String name;
+  String state;
+  String district;
+  String number;
+  _RegisterHospitalBedState(this.name, this.state, this.district, this.number);
+  var test = RegisterHospitalBed();
   final totalBeds = TextEditingController();
   final normalBeds = TextEditingController();
   final oxygenBeds = TextEditingController();
   final hduBeds = TextEditingController();
+  final _firestore = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +59,7 @@ class _RegisterHospitalBedState extends State<RegisterHospitalBed> {
               Padding(
                 padding: EdgeInsets.only(top: 2.75.h),
                 child: Text(
-                  'name',
+                  '$name',
                   style: TextStyle(
                     fontSize: 40.0,
                     color: Color(0XFF0BA296),
@@ -103,7 +118,18 @@ class _RegisterHospitalBedState extends State<RegisterHospitalBed> {
                       ),
                     ),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
+                    await _firestore.collection('hospitals').add({
+                      'hospitalName': name,
+                      'state': state,
+                      'district': district,
+                      'date': DateTime.now(),
+                      'mobileNumber': number,
+                      'totalBeds': totalBeds.text,
+                      'normalBeds': normalBeds.text,
+                      'oxygenBeds': oxygenBeds.text,
+                      'hduBeds': hduBeds.text
+                    });
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute
