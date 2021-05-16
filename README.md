@@ -1,16 +1,23 @@
-# bed_tracker
+# Bed Tracker
 
-A new Flutter project.
+# Instructions:
 
-## Getting Started
+## Prerequisites:
+    1. Flutter should be installed:
+          How to install: https://flutter.dev/docs/get-started/install   
+    2. A physical android device connected to your computer and set to developer mode, (OR) An Android emulator.
 
-This project is a starting point for a Flutter application.
+## To run the project locally, follow the following steps:
+    1. Download code: git clone https://github.com/Pirate2606/bed-tracker
+    2. Change directory: cd bed-tracker
+    3. Run the android emulator or connect physical android device to your computer.
+    4. Run main.dart: flutter run lib/main.dart
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+# Dependencies:
+    All the required packages are in 'pubspec.yaml' file (https://github.com/Pirate2606/bed-tracker/blob/main/pubspec.yaml).
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Open-source code used:
+    1. Flutter: https://github.com/flutter/flutter
+    2. Firebase: https://github.com/firebaseextended/flutterfire
+    3. All the packages mentioned in 'pubspec.yaml' are open source packages, which can be found in 'https://pub.dev/'.
